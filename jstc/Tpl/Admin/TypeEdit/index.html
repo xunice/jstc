@@ -1,0 +1,109 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+<title>后台管理</title>
+<load href="__PUBLIC__/assets/css/i/favicon.png"/>
+<load href="__PUBLIC__/assets/css/amazeui.min.css" />
+<load href="__PUBLIC__/assets/css/admin.css" />
+<load href="__PUBLIC__/assets/css/app.css" />
+
+</head>
+
+<body>
+
+<include file="./Tpl/Admin/Inc/header.html" />
+
+<div class="am-cf admin-main">
+  <!-- sidebar start -->
+  <include file="./Tpl/Admin/Inc/sidebarleft.html" />
+  <!-- sidebar end -->
+
+   <!-- content start -->
+  <div class="admin-content">
+
+    <div class="am-cf am-padding">
+      <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">分类管理</strong> / <small>/分类修改</small></div>
+    </div>
+
+    <div class="am-g">
+      <div class="am-u-sm-12">
+          <table class="am-table am-table-striped am-table-hover table-main">
+            <thead>
+              <tr>
+                <th class="table-id">ID</th><th class="table-title">名称</th><th>父级</th><th class="table-set">操作</th>
+              </tr>
+          </thead>
+          <tbody>
+           <tr>
+          <volist name="type" id="vo">
+            <form id="form1" name="form1" action="__URL__/save?id={$vo.id}" method="post" >
+                  <td>{$vo.id}</td>
+                   <td><input id="title" name="title" type="text" value="{$vo.title}" /></td>
+                  <td><div class="am-form-group">
+                      <label for="user-phone" class="am-u-sm-3 am-form-label">选择分类 </label>
+                      <div class="am-u-sm-9">
+                          <select name="tid" data-am-selected="{btnSize: 'sm'}">
+                            <volist name="types" id="vo1">
+                              <option value="{$vo1.id}">{$vo1.title}</option>
+                            </volist>
+                          </select>
+                      </div>
+                    </div></td>
+                 
+                  <td>
+                    <input type="submit" value="保存修改"></input>
+                  </td>
+                   </form>
+            </volist>
+             </tr>
+          </tbody>
+        </table>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+                <br>
+        <br>
+        <br>
+</div>
+          <hr />
+      </div>
+
+    </div>
+  </div>
+  <!-- content end -->
+   
+
+</div>
+</div>
+
+<a class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
+
+<include file="./Tpl/Admin/Inc/footer.html" />
+
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="assets/js/polyfill/rem.min.js"></script>
+<script src="assets/js/polyfill/respond.min.js"></script>
+<script src="assets/js/amazeui.legacy.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<load href="__PUBLIC__/assets/js/jquery.min.js" />
+<load href="__PUBLIC__/assets/js/amazeui.min.js" />
+<!--<![endif]-->
+<load href="__PUBLIC__/assets/js/app.js" />
+
+</body>
+</html>
+

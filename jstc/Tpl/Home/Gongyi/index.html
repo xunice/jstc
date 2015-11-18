@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+<title>公益事业</title>
+<load href="__PUBLIC__/assets/css/i/favicon.png"/>
+<load href="__PUBLIC__/assets/css/amazeui.min.css" />
+<load href="__PUBLIC__/assets/css/app.css" />
+  <style>
+    @media only screen and (min-width: 641px) {
+      .am-offcanvas {
+        display: block;
+        position: static;
+        background: none;
+      }
+
+      .am-offcanvas-bar {
+        position: static;
+        width: auto;
+        background: none;
+        -webkit-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+      }
+      .am-offcanvas-bar:after {
+        content: none;
+      }
+
+    }
+    
+    @media only screen and (max-width: 640px) {
+      .am-offcanvas-bar .am-nav>li>a {
+        color:#ccc;
+        border-radius: 0;
+        border-top: 1px solid rgba(0,0,0,.3);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,.05)
+      }
+
+      .am-offcanvas-bar .am-nav>li>a:hover {
+        background: #404040;
+        color: #fff
+      }
+
+      .am-offcanvas-bar .am-nav>li.am-nav-header {
+        color: #777;
+        background: #404040;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
+        text-shadow: 0 1px 0 rgba(0,0,0,.5);
+        border-top: 1px solid rgba(0,0,0,.3);
+        font-weight: 400;
+        font-size: 75%
+      }
+
+      .am-offcanvas-bar .am-nav>li.am-active>a {
+        background: #1a1a1a;
+        color: #fff;
+        box-shadow: inset 0 1px 3px rgba(0,0,0,.3)
+      }
+
+      .am-offcanvas-bar .am-nav>li+li {
+        margin-top: 0;
+      }
+    }
+
+    .my-head {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .my-button {
+      position: fixed;
+      top: 50px;
+      left: 0;
+      border-radius: 0;
+    }
+    .my-sidebar {
+      padding-right: 0;
+      border-right: 1px solid #eeeeee;
+    }
+  </style>
+<script type="text/javascript">
+$(function(){
+  
+      //如果。icona-dded[表现为已经被加入书签]  其后有同辈元素，则隐藏他
+      $(".icon-added").next( "a").remove();
+
+      $(".article-desc-brief .view-detail-context .view-detail").click(function(){
+        $(this).parent().parent(".article-desc-brief").hide();
+        $(this).parent().parent(".article-desc-brief").next().show();
+      })
+
+      $(".article-desc-full .view-detail-context .view-detail").click(function(){
+       $(this).parent().parent(".article-desc-full").hide();
+        $(this).parent().parent().prev(".article-desc-brief").show();
+         
+      })
+
+
+
+})
+</script>
+</head>
+
+<body>
+<include file="./Tpl/Home/Inc/head.html" />
+
+<!--- 内容 ---->
+<div class="am-g am-g-fixed">
+  <div class="am-u-md-9 am-u-md-push-3">
+    <div class="am-g">
+      <div class="am-u-sm-11 am-u-sm-centered">
+        <div class="am-cf am-article">
+          <div class="am-u-sm-12 am-article my-head">
+            <h1 class="am-article-title">{$new.title}</h1>
+            <p class="am-article-meta">{$new.username}</p>
+            <h2></h2>
+          </div>
+          <p>
+            {$new.content}
+          </p>
+         
+        </div>
+
+        <hr/>
+        
+        <!-- 多说评论框 start -->
+        <div class="ds-thread" data-thread-key="{$new.id}" data-title="{$new.title}" data-url="{$new.title}"></div>
+      <!-- 多说评论框 end -->
+          
+      </div>
+    </div>
+  </div>
+  <h2></h2>
+  <div class="am-u-md-3 am-u-md-pull-9 my-sidebar">
+    <div class="am-offcanvas" id="sidebar">
+      <div class="am-offcanvas-bar">
+        <ul class="am-nav">
+          <li>关于我们</li>
+
+          <volist name="menu" id="vo">
+          <li><a href="__URL__/index/id/{$vo.id}">{$vo.title}</a></li>
+          <ul> 
+            <volist name="vo['_child']" id="sub">
+              <li><a href="__URL__/index/id/{$sub.id}">  {$sub.title}</a></li> 
+            </volist>
+          </ul> 
+         </volist>    
+         
+        </ul>
+      </div>
+    </div>
+  </div>
+  <a href="#sidebar" class="am-btn am-btn-sm am-btn-success am-icon-bars am-show-sm-only my-button" data-am-offcanvas><span class="am-sr-only">侧栏导航</span></a>
+</div>
+
+
+
+
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"xunice"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+<!-- </ol> -->
+
+
+<include file="./Tpl/Admin/Inc/footer.html" />
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="assets/js/polyfill/rem.min.js"></script>
+<script src="assets/js/polyfill/respond.min.js"></script>
+<script src="assets/js/amazeui.legacy.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<load href="__PUBLIC__/assets/js/jquery.min.js" />
+<load href="__PUBLIC__/assets/js/amazeui.min.js" />
+<!--<![endif]-->
+<load href="__PUBLIC__/assets/js/app.js" />
+</body>
+</html>

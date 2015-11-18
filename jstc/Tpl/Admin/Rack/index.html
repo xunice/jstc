@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+<title>产品管理</title>
+<load href="__PUBLIC__/assets/css/i/favicon.png"/>
+<load href="__PUBLIC__/assets/css/amazeui.min.css" />
+<load href="__PUBLIC__/assets/css/admin.css" />
+<load href="__PUBLIC__/assets/css/app.css" />
+
+ <style type="text/css">
+   .admin-content .detail{
+      height: 100%;
+      width: 100%;
+      margin: auto 0;
+      padding: auto 0;
+      text-align: center;
+    }
+    .footer{
+      background: #fff;
+    }
+  </style>
+
+</head>
+
+<body>
+<include file="./Tpl/Admin/Inc/header.html" />
+
+<div class="am-cf admin-main">
+  <!-- sidebar start -->
+  <include file="./Tpl/Admin/Inc/sidebarleft.html" />
+  <!-- sidebar end -->
+
+   <!-- content start -->
+  <div class="admin-content">
+
+    <div class="am-cf am-padding">
+      <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">产品管理</strong> / <small>所有产品</small></div>
+    </div>
+
+
+    <form id="form" name="form" action="__URL__/" method="post" >
+
+    <ul class="am-avg-sm-2 am-avg-md-4 am-avg-lg-6 am-margin gallery-list">
+      <volist name="racks" id="vo">  
+      <li>
+        <a href="#">
+         <img class="am-img-thumbnail am-img-bdrs" src="__PUBLIC__/Uploads/m_{$vo.image}" alt=""/>
+         <div class="gallery-title">{$vo.title}</div>
+         <div class="gallery-desc">{$vo.price}</div>
+        </a>
+      </li>
+      </volist>
+    </ul>
+
+    <div class="am-margin am-cf">
+      <hr/>
+       <p class="am-fl">{$page}</p>
+    </div>
+    </form>
+  </div>
+  <!-- content end -->
+
+</div>
+
+<a class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
+
+<include file="./Tpl/Admin/Inc/footer.html" />
+
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="assets/js/polyfill/rem.min.js"></script>
+<script src="assets/js/polyfill/respond.min.js"></script>
+<script src="assets/js/amazeui.legacy.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<load href="__PUBLIC__/assets/js/jquery.min.js" />
+<load href="__PUBLIC__/assets/js/amazeui.min.js" />
+<!--<![endif]-->
+<load href="__PUBLIC__/assets/js/app.js" />
+
+
+</body>
+</html>

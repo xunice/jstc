@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+<title>产品展示</title>
+<load href="__PUBLIC__/assets/css/i/favicon.png"/>
+<load href="__PUBLIC__/assets/css/amazeui.min.css" />
+<load href="__PUBLIC__/assets/css/app.css" />
+  <style>
+.am-form-group{
+    width: 30px;
+  }
+    
+    .get-title {
+      font-size: 200%;
+      border: 2px solid #fff;
+      padding: 20px;
+      display: inline-block;
+    }
+
+    .get-btn {
+      background: #fff;
+    }
+
+    .detail {
+      background: #fff;
+    }
+
+    .detail-h2 {
+      text-align: center;
+      font-size: 150%;
+      margin: 40px 0;
+    }
+
+    .detail-h3 {
+      color: #1f8dd6;
+    }
+
+    .detail-p {
+      color: #7f8c8d;
+    }
+
+    .detail-mb {
+      margin-bottom: 30px;
+    }
+
+  .detail ul li{
+      margin: 0px;
+    }
+
+    .hope {
+      background: #0bb59b;
+      padding: 50px 0;
+    }
+
+    .hope-img {
+      text-align: center;
+    }
+
+    .hope-hr {
+      border-color: #149C88;
+    }
+
+    .hope-title {
+      font-size: 140%;
+    }
+
+    .about {
+      background: #fff;
+      padding: 40px 0;
+      color: #7f8c8d;
+    }
+
+    .about-color {
+      color: #34495e;
+    }
+
+    .about-title {
+      font-size: 180%;
+      padding: 30px 0 50px 0;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+<include file="./Tpl/Home/Inc/head.html" />
+
+<!--- 内容 ---->
+<br>
+<br>
+<div class="detail">
+  <div class="am-g am-container">
+    <div class="am-u-lg-12">
+
+     <div class="am-u-lg-2">
+     <strong class="am-text-primary am-text-lg">产品分类</strong>
+     <ul class="am-avg-sm-2 am-avg-md-2 am-avg-lg-1 gallery-list-side">
+      <volist name="type" id="vo">  
+          <li>
+            <a href="__URL__/../views/index/{$vo.id}">
+            {$vo.title}
+            </a>
+          </li>
+       </volist>
+     
+    </ul>
+
+  </div>
+      <form id="form" name="form" action="__URL__/" method="post" >
+
+
+      <div class="am-u-lg-10 am-u-md-12">    
+ <strong class="am-text-primary am-text-lg">产品展示</strong>
+
+
+    <ul class="am-avg-sm-2 am-avg-md-4 am-avg-lg-6 gallery-list">
+       <volist name="qipaos" id="vo">  
+          <li>
+            <a href="__URL__/../detail/index/{$vo.id}">
+              <img class="am-img-thumbnail am-img-bdrs" src="__PUBLIC__/Uploads/m_{$vo.image}" alt=""/>
+              <div class="gallery-title">{$vo.title}</div>
+              <volist name="type" id="t">
+                <eq name="t.id" value="$vo.typeid"><div class="gallery-title">{$t.title}</div></eq>
+              </volist>
+            </a>
+          </li>
+       </volist>
+    </ul>
+
+    <div class="am-margin am-cf">
+      <p class="am-fl">{$page}</p>
+    </div>
+
+      </form>
+  </div>
+      
+    </div>
+  </div>
+</div>
+
+
+<include file="./Tpl/Admin/Inc/footer.html" />
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="assets/js/polyfill/rem.min.js"></script>
+<script src="assets/js/polyfill/respond.min.js"></script>
+<script src="assets/js/amazeui.legacy.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<load href="__PUBLIC__/assets/js/jquery.min.js" />
+<load href="__PUBLIC__/assets/js/amazeui.min.js" />
+<!--<![endif]-->
+<load href="__PUBLIC__/assets/js/app.js" />
+</body>
+</html>

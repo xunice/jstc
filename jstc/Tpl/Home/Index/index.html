@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+<title>久顺天成-首页</title>
+<load href="__PUBLIC__/assets/css/i/favicon.png"/>
+<load href="__PUBLIC__/assets/css/amazeui.min.css" />
+<load href="__PUBLIC__/assets/css/app.css" />
+</head>
+
+<body>
+<include file="./Tpl/Home/Inc/head.html" />
+
+
+<div class="detail">
+<br>
+<br>
+  <div class="am-g am-container">
+    <div class="am-u-lg-12">
+      <div class="am-u-lg-10">
+        
+       <strong class="am-text-primary am-text-lg">产品展示</strong>
+
+      <ul class="am-avg-sm-2 am-avg-md-4 am-avg-lg-6 gallery-list">
+      <volist name="qipaoviews" id="vo"  offset="0" length='6'>  
+          <li>
+             <a href="__URL__/../detail/index/{$vo.id}">
+              <img class="am-img-thumbnail am-img-bdrs" src="__PUBLIC__/Uploads/m_{$vo.image}" alt=""/>
+              <div class="gallery-title">{$vo.name}</div>
+              <div class="gallery-title">{$vo.model_name}</div>
+              <volist name="type" id="t">
+                <eq name="t.id" value="$vo.brand"><div class="gallery-title">{$t.title}</div></eq>
+                <!-- <if condition="$vo.brand eq $t.id">abc<div class="gallery-title">{$t.title}</div> 
+                <else /> 
+                </if>-->
+              </volist>
+             
+              <div class="gallery-desc"><span style="color:red">价格:{$vo.price}</span></div>
+            </a>
+          </li>
+       </volist>
+      </ul>
+
+       <strong class="am-text-primary am-text-lg">关于我们</strong>
+
+      <ul class="am-avg-sm-2 am-avg-md-4 am-avg-lg-6 gallery-list">
+      <volist name="qipaojingsai" id="vo"  offset="0" length='6'>  
+          <li>
+             <a href="__URL__/../detail/index/{$vo.id}">
+             <img class="am-img-thumbnail am-img-bdrs" src="__PUBLIC__/Uploads/m_{$vo.image}" alt=""/>
+              <div class="gallery-title">{$vo.name}</div>
+              <div class="gallery-title">{$vo.model_name}</div>
+              <div class="gallery-desc"><span style="color:red">价格:{$vo.price}</span></div>
+       
+              <div class="gallery-desc">
+              <button class="am-u-lg-6 am-btn-primary am-btn-xs"><a style="color:white" href="__URL__/vote/{$vo.id}/{$vo.vote_num}">投票</a></button><div class="am-u-lg-6">{$vo.vote_num}票</div>
+              </div>
+            </a>
+          </li>
+       </volist>
+      </ul>
+
+       <strong class="am-text-primary am-text-lg">联系方式</strong>
+      <ul class="am-avg-sm-2 am-avg-md-4 am-avg-lg-6 gallery-list">
+      <volist name="qipaowoman" id="vo" offset="0" length='2'>  
+          <li>
+             <a href="__URL__/../detail/index/{$vo.id}">
+              <img class="am-img-thumbnail am-img-bdrs" src="__PUBLIC__/Uploads/m_{$vo.image}" alt=""/>
+              <div class="gallery-title">{$vo.name}</div>
+              <div class="gallery-title">{$vo.model_name}</div>
+              <div class="gallery-title">{$vo.city}</div>
+            </a>
+          </li>
+       </volist>
+      </ul>
+
+  </div>
+
+  <div class="am-u-lg-2">
+
+
+  </div>
+      
+    </div>
+  </div>
+</div>
+
+<include file="./Tpl/Admin/Inc/footer.html" />
+
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="assets/js/polyfill/rem.min.js"></script>
+<script src="assets/js/polyfill/respond.min.js"></script>
+<script src="assets/js/amazeui.legacy.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<load href="__PUBLIC__/assets/js/jquery.min.js" />
+<load href="__PUBLIC__/assets/js/amazeui.min.js" />
+<!--<![endif]-->
+<load href="__PUBLIC__/assets/js/app.js" />
+</body>
+</html>
