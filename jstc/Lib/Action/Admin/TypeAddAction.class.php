@@ -6,9 +6,9 @@ class TypeAddAction extends Action {
         $this->username = session('username');//前台显示登录用户名
         $this->logout =session('logout'); 
         
-        $data['tid'] = 0;
-        $type=M("type")->where($data)->select();
-        $this->assign('type',$type);
+        $data['fid'] = 0;
+        $menu=M("menu")->where($data)->select();
+        $this->assign('menu',$menu);
 
         $this->display();
       }
@@ -19,10 +19,10 @@ class TypeAddAction extends Action {
     }
 
     public function add(){
-        $type = D("type");
-        if ($vo = $type->create()) {
+        $menu = D("menu");
+        if ($vo = $menu->create()) {
            // dump($vo);
-            $list = $type->add();
+            $list = $menu->add();
             /* 比如
              *  $Form->add($data);
               或者使用data方法连贯操作

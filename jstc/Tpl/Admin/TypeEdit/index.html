@@ -42,15 +42,15 @@
           </thead>
           <tbody>
            <tr>
-          <volist name="type" id="vo">
+          <volist name="menu" id="vo">
             <form id="form1" name="form1" action="__URL__/save?id={$vo.id}" method="post" >
                   <td>{$vo.id}</td>
                    <td><input id="title" name="title" type="text" value="{$vo.title}" /></td>
                   <td><div class="am-form-group">
                       <label for="user-phone" class="am-u-sm-3 am-form-label">选择分类 </label>
                       <div class="am-u-sm-9">
-                          <select name="tid" data-am-selected="{btnSize: 'sm'}">
-                            <volist name="types" id="vo1">
+                          <select name="fid" data-am-selected="{btnSize: 'sm'}">
+                            <volist name="menus" id="vo1">
                               <option value="{$vo1.id}">{$vo1.title}</option>
                             </volist>
                           </select>

@@ -4,8 +4,9 @@ class TypeAction extends Action {
     public function index(){
     	if(session('?username')){
 
-    		$type=M("type")->select();
-            $this->assign('type',$type);
+            $data=['fid'] = 0;
+    		$menu=M("menu")->where($data)->select();
+            $this->assign('menu',$menu);
             
             $this->username = session('username');//前台显示登录用户名
             $this->logout =session('logout');   
@@ -18,9 +19,9 @@ class TypeAction extends Action {
     	
     }
     public function add(){
-        $type = D("type");
-        if ($vo = $type->create()) {
-            $list = $type->add();
+        $menu = D("menu");
+        if ($vo = $menu->create()) {
+            $list = $menu->add();
             /* 比如
              *  $Form->add($data);
               或者使用data方法连贯操作
@@ -41,8 +42,8 @@ class TypeAction extends Action {
     public function del(){
         $condition['id'] = $_GET["_URL_"][4];
        
-        $type=M("type");
-        if($list=$type->where($condition)->delete()){
+        $menu=M("menu");
+        if($list=$menu->where($condition)->delete()){
             $this->success('删除成功！');
 
         }

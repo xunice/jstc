@@ -5,12 +5,12 @@ class TypeEditAction extends Action {
     	if(session('?username')){
             $data['id']=$_GET['id'];
             
-    		$type=M("type")->where($data)->select();
-            $this->assign('type',$type);
+    		$menu=M("menu")->where($data)->select();
+            $this->assign('menu',$menu);
 
-            $datas['tid'] = 0;
-            $types=M("type")->where($datas)->select();
-            $this->assign('types',$types);
+            $datas['fid'] = 0;
+            $menus=M("menu")->where($datas)->select();
+            $this->assign('menus',$menus);
 
             
             $this->username = session('username');//前台显示登录用户名
@@ -28,7 +28,7 @@ class TypeEditAction extends Action {
         $data['id']=$_GET['id'];
         $data['title']=$_POST['title'];
         
-        if($bookclass=M("type")->save($data)){
+        if($menu=M("menu")->save($data)){
                 $this->success('数据保存成功！');
             }
             else{
