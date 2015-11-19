@@ -130,24 +130,13 @@ $(function(){
       <div class="am-u-sm-12">
           <table class="am-table am-table-striped am-table-hover table-main">
             <thead>
-              <tr><th class="table-title">名称</th><th class="table-type">选择父分类</th><th class="table-set">操作</th>
+              <tr><th class="table-title">名称</th><th class="table-set">操作</th>
               </tr>
           </thead>
           <tbody>
            <tr>
             <form id="form1" name="form1" action="__URL__/add" method="post" >
                   <td><input id="title" name="title" type="text" value="" /></td>
-                  <td>
-                    <div class="am-form-group">
-                      <label for="user-phone" class="am-u-sm-3 am-form-label">选择分类 </label>
-                      <div class="am-u-sm-9">
-                          <select name="tid" data-am-selected="{btnSize: 'sm'}">
-                            <?php if(is_array($type)): $i = 0; $__LIST__ = $type;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["id"]); ?>"><?php echo ($vo["title"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
-                          </select>
-                      </div>
-                    </div>
-
-                  </td>
                   <td>
                     <input type="submit" value="保存"></input>
                   </td>

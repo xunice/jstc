@@ -144,10 +144,11 @@ class RackAddAction extends Action {
   // }
 
    public function upload() {
-          
+           
         if (!empty($_FILES)) {
             //如果有文件上传 上传附件
             $this->_upload();
+            
         }
     }
 
