@@ -142,8 +142,6 @@ $(function(){
         <div class="am-cf am-article">
           <div class="am-u-sm-12 am-article my-head">
             <h1 class="am-article-title"><?php echo ($new["title"]); ?></h1>
-            <p class="am-article-meta"><?php echo ($new["username"]); ?></p>
-            <h2></h2>
           </div>
           <p>
             <?php echo ($new["content"]); ?>
@@ -165,7 +163,7 @@ $(function(){
     <div class="am-offcanvas" id="sidebar">
       <div class="am-offcanvas-bar">
         <ul class="am-nav">
-          <li>关于我们</li>
+          <li>联系我们</li>
 
           <?php if(is_array($menu)): $i = 0; $__LIST__ = $menu;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li><a href="__URL__/index/id/<?php echo ($vo["id"]); ?>"><?php echo ($vo["title"]); ?></a></li>
           <ul> 

@@ -7,6 +7,13 @@ class NewsAddAction extends Action {
           $this->logout =session('logout'); 
            $userId['userId']= session('userId');
         $this->assign('userId',$userId['userId']);// 赋值数据集
+        $menu=M("menu")->where($data)->select();
+            $this->assign('menu',$menu);
+
+            $datas['fid'] = 0;
+            $menus=M("menu")->where($datas)->select();
+            $this->assign('menus',$menus);
+
         $this->display();
       }
       else{

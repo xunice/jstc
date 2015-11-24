@@ -2,7 +2,7 @@
 // 本类由系统自动生成，仅供测试用途
 class CheckAction extends Action {
     public function index(){
-        $User=M("admin");
+        $User=M("user");
         //多字段查询
         $condition['username']=$_POST['username'];
         $condition['password']=$_POST['password'];

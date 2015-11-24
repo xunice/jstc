@@ -3,22 +3,19 @@
 class AboutAction extends Action {
     public function index(){
                             
-        //$news=M("news")->select();                       
-        //$this->assign('news',$news);
 
         $data['fid'] = '1';//关于我们
         $menus=M("menu")->where($data)->select();                       
         $this->assign('menu',$menus);
 
-         $data['typeid'] = $_GET["_URL_"][3];
+         $menuId['menuId'] = $_GET["_URL_"][3];
          // dump($data); 
-         if (is_null($data['typeid'])) {
-            $this->assign('new',$news[0]);
-         }else{
-             $new=M('news')->where($data)->select();
-             $this->assign('new',$new[0]);
-            // dump($new); 
+         if (is_null($menuId['menuId'])) {
+            $menuId['menuId'] = $menus[0]['id'];
          }
+
+        $new=M('news')->where($menuId)->select();
+        $this->assign('new',$new[0]);
 
         $this->display();
         	

@@ -10,7 +10,7 @@ class RackAction extends Action {
         $rack = M('rack'); // 实例化Data数据对象
         import('ORG.Util.Page');// 导入分页类
         $count      = $rack->count();// 查询满足要求的总记录数
-        $Page       = new Page($count,20);// 实例化分页类 传入总记录数
+        $Page       = new Page($count,30);// 实例化分页类 传入总记录数
         // 进行分页数据查询 注意page方法的参数的前面部分是当前的页数使用 $_GET[p]获取
         $nowPage = isset($_GET['p'])?$_GET['p']:1;
         $list = $rack->order('id')->page($nowPage.','.$Page->listRows)->select();

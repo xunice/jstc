@@ -64,6 +64,7 @@
           <a class="am-cf" data-am-collapse="{target: '#collapse-nav'}"><span class="am-icon-file"></span> 产品管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
           <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav">
             <li><a href="__URL__/../rack_type_add" class="am-cf"><span class="am-icon-check"></span> 产品分类添加</a></li>
+            <li><a href="__URL__/../rack_type"><span class="am-icon-th"></span> 全部产品分类</a></li>
             <li><a href="__URL__/../rack_add" class="am-cf"><span class="am-icon-check"></span> 产品添加</a></li>
             <li><a href="__URL__/../rack"><span class="am-icon-th"></span> 全部产品</a></li>
           </ul>
@@ -80,8 +81,8 @@
         <li class="admin-parent">
           <a class="am-cf" data-am-collapse="{target: '#collapse-nav3'}"><span class="am-icon-file"></span> 分类管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
           <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav3">
-            <li><a href="__URL__/../type_add" class="am-cf"><span class="am-icon-check"></span> 分类添加</a></li>
-            <li><a href="__URL__/../type"><span class="am-icon-th"></span> 全部分类</a></li>
+            <li><a href="__URL__/../menu_add" class="am-cf"><span class="am-icon-check"></span> 分类添加</a></li>
+            <li><a href="__URL__/../menu"><span class="am-icon-th"></span> 全部分类</a></li>
           </ul>
         </li>
 
@@ -118,7 +119,7 @@
           <table class="am-table am-table-striped am-table-hover table-main">
             <thead>
               <tr>
-                <th class="table-check"><input type="checkbox" /></th><th class="table-id">ID</th><th class="table-title">新闻标题</th><th class="table-type">新闻类别</th><th class="table-date">新闻作者</th><th class="table-type">添加时间</th><th class="table-set">操作</th>
+                <th class="table-check"><input type="checkbox" /></th><th class="table-id">ID</th><th class="table-title">新闻标题</th><th class="table-type">新闻类别</th><<th class="table-type">添加时间</th><th class="table-set">操作</th>
               </tr>
           </thead>
           <tbody>
@@ -130,9 +131,6 @@
                   </a></td>
                   <td>
                     <?php echo ($vo["typename"]); ?>
-                  </td>
-                  <td>
-                   <?php echo ($vo["username"]); ?>
                   </td>
                   <td>
                    <?php echo ($vo["createTime"]); ?>

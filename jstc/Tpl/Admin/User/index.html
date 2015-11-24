@@ -40,24 +40,24 @@
               </tr>
           </thead>
           <tbody>
-          <volist name="User" id="vo">
+          <volist name="user" id="vo">
                 <tr>
                   <td><input type="checkbox" /></td>
                   <td>{$vo.id}</td>
                   <td><a href="#">
-                      <if condition="($vo['state'] eq 0) "><span style="color:red;">{$vo.userName}</span>
-                        <else /><span style="color:#76AD4E;">{$vo.userName}</span>
+                      <if condition="($vo['state'] eq 0) "><span style="color:red;">{$vo.username}</span>
+                        <else /><span style="color:#76AD4E;">{$vo.username}</span>
                       </if>
 
                   </a></td>
                   <td>
-                    <if condition="($vo['userType'] eq 2) ">管理员
-                    <elseif condition="($vo['userType'] eq 1) " />商家
+                    <if condition="($vo['roleid'] eq 2) ">管理员
+                    <elseif condition="($vo['roleid'] eq 1) " />商家
                     <else />会员
                     </if>
                   </td>
                   <td>
-                    <if condition="($vo['state'] eq 0) ">待审核
+                    <if condition="($vo['status'] eq 0) ">待审核
                     <else />已审核[Pass]
                     </if>
                   </td>

@@ -82,6 +82,7 @@ $(function(){
           <a class="am-cf" data-am-collapse="{target: '#collapse-nav'}"><span class="am-icon-file"></span> 产品管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
           <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav">
             <li><a href="__URL__/../rack_type_add" class="am-cf"><span class="am-icon-check"></span> 产品分类添加</a></li>
+            <li><a href="__URL__/../rack_type"><span class="am-icon-th"></span> 全部产品分类</a></li>
             <li><a href="__URL__/../rack_add" class="am-cf"><span class="am-icon-check"></span> 产品添加</a></li>
             <li><a href="__URL__/../rack"><span class="am-icon-th"></span> 全部产品</a></li>
           </ul>
@@ -98,8 +99,8 @@ $(function(){
         <li class="admin-parent">
           <a class="am-cf" data-am-collapse="{target: '#collapse-nav3'}"><span class="am-icon-file"></span> 分类管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
           <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav3">
-            <li><a href="__URL__/../type_add" class="am-cf"><span class="am-icon-check"></span> 分类添加</a></li>
-            <li><a href="__URL__/../type"><span class="am-icon-th"></span> 全部分类</a></li>
+            <li><a href="__URL__/../menu_add" class="am-cf"><span class="am-icon-check"></span> 分类添加</a></li>
+            <li><a href="__URL__/../menu"><span class="am-icon-th"></span> 全部分类</a></li>
           </ul>
         </li>
 

@@ -1,14 +1,14 @@
 <?php
 /**
  * KindEditor PHP
- * 
+ *
  * 本PHP程序是演示程序，建议不要直接在实际项目中使用。
  * 如果您确定直接使用本程序，使用之前请仔细确认相关安全设置。
- * 
+ *
  */
 
 require_once 'JSON.php';
- 
+
 $php_path = dirname(__FILE__) . '/';
 $php_url = dirname($_SERVER['PHP_SELF']) . '/';
 
@@ -18,6 +18,20 @@ $root_path = $php_path . '../attached/';
 $root_url = $php_url . '../attached/';
 //图片扩展名
 $ext_arr = array('gif', 'jpg', 'jpeg', 'png', 'bmp');
+
+//目录名
+$dir_name = empty($_GET['dir']) ? '' : trim($_GET['dir']);
+if (!in_array($dir_name, array('', 'image', 'flash', 'media', 'file'))) {
+	echo "Invalid Directory name.";
+	exit;
+}
+if ($dir_name !== '') {
+	$root_path .= $dir_name . "/";
+	$root_url .= $dir_name . "/";
+	if (!file_exists($root_path)) {
+		mkdir($root_path);
+	}
+}
 
 //根据path参数，设置各路径和URL
 if (empty($_GET['path'])) {
@@ -31,6 +45,7 @@ if (empty($_GET['path'])) {
 	$current_dir_path = $_GET['path'];
 	$moveup_dir_path = preg_replace('/(.*?)[^\/]+\/$/', '$1', $current_dir_path);
 }
+//echo realpath($root_path);
 //排序形式，name or size or type
 $order = empty($_GET['order']) ? 'name' : strtolower($_GET['order']);
 
@@ -68,7 +83,7 @@ if ($handle = opendir($current_path)) {
 			$file_list[$i]['has_file'] = false;
 			$file_list[$i]['filesize'] = filesize($file);
 			$file_list[$i]['dir_path'] = '';
-			$file_ext = strtolower(array_pop(explode('.', trim($file))));
+			$file_ext = strtolower(pathinfo($file, PATHINFO_EXTENSION));
 			$file_list[$i]['is_photo'] = in_array($file_ext, $ext_arr);
 			$file_list[$i]['filetype'] = $file_ext;
 		}
@@ -120,4 +135,3 @@ $result['file_list'] = $file_list;
 header('Content-type: application/json; charset=UTF-8');
 $json = new Services_JSON();
 echo $json->encode($result);
-?>

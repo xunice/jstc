@@ -165,7 +165,7 @@ $(function(){
     <div class="am-offcanvas" id="sidebar">
       <div class="am-offcanvas-bar">
         <ul class="am-nav">
-          <li>关于我们</li>
+          <li>工程案例</li>
 
           <?php if(is_array($menu)): $i = 0; $__LIST__ = $menu;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li><a href="__URL__/index/id/<?php echo ($vo["id"]); ?>"><?php echo ($vo["title"]); ?></a></li>
           <ul> 

@@ -7,16 +7,14 @@ class NewsAction extends Action {
     		$this->logout =session('logout');
             //$data['id']=$_GET["_URL_"][3];
              
-             $type['typeid'] = 0;
                             
-             $news=M("news")->where($type)->select();                       
+             $news=M("news")->select();                       
              $this->assign('news',$news);
 
              //dump($news); 
             //$this->assign('new',$news[0]);
 
               $data['id'] = $_GET["_URL_"][3];
-              $data['typeid'] = 0;
              // dump($data); 
              if (is_null($data['id'])) {
                  # code...

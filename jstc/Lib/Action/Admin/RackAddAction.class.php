@@ -198,17 +198,9 @@ class RackAddAction extends Action {
           $list = $rack->add();
 
           if ($list !== false) {
-             $this->ajaxReturn([
-                'status' => 1,
-                'info' => '数据保存成功！'
-            ]);
-              //$this->success('数据保存成功！');
+              $this->success('数据保存成功！');
           } else {
-             $this->ajaxReturn([
-                'status' => 0,
-                'info' => '数据写入错误！'
-            ]);
-             //$this->error('数据写入错误！');
+             $this->error('数据写入错误！');
           }
         }
 

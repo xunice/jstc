@@ -64,6 +64,7 @@
           <a class="am-cf" data-am-collapse="{target: '#collapse-nav'}"><span class="am-icon-file"></span> 产品管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
           <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav">
             <li><a href="__URL__/../rack_type_add" class="am-cf"><span class="am-icon-check"></span> 产品分类添加</a></li>
+            <li><a href="__URL__/../rack_type"><span class="am-icon-th"></span> 全部产品分类</a></li>
             <li><a href="__URL__/../rack_add" class="am-cf"><span class="am-icon-check"></span> 产品添加</a></li>
             <li><a href="__URL__/../rack"><span class="am-icon-th"></span> 全部产品</a></li>
           </ul>
@@ -81,7 +82,7 @@
           <a class="am-cf" data-am-collapse="{target: '#collapse-nav3'}"><span class="am-icon-file"></span> 分类管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
           <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav3">
             <li><a href="__URL__/../type_add" class="am-cf"><span class="am-icon-check"></span> 分类添加</a></li>
-            <li><a href="__URL__/../type"><span class="am-icon-th"></span> 全部分类</a></li>
+            <li><a href="__URL__/../menu"><span class="am-icon-th"></span> 全部分类</a></li>
           </ul>
         </li>
 
@@ -122,21 +123,21 @@
               </tr>
           </thead>
           <tbody>
-          <?php if(is_array($User)): $i = 0; $__LIST__ = $User;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
+          <?php if(is_array($user)): $i = 0; $__LIST__ = $user;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
                   <td><input type="checkbox" /></td>
                   <td><?php echo ($vo["id"]); ?></td>
                   <td><a href="#">
-                      <?php if(($vo['state'] == 0) ): ?><span style="color:red;"><?php echo ($vo["userName"]); ?></span>
-                        <?php else: ?><span style="color:#76AD4E;"><?php echo ($vo["userName"]); ?></span><?php endif; ?>
+                      <?php if(($vo['state'] == 0) ): ?><span style="color:red;"><?php echo ($vo["username"]); ?></span>
+                        <?php else: ?><span style="color:#76AD4E;"><?php echo ($vo["username"]); ?></span><?php endif; ?>
 
                   </a></td>
                   <td>
-                    <?php if(($vo['userType'] == 2) ): ?>管理员
-                    <?php elseif(($vo['userType'] == 1) ): ?>商家
+                    <?php if(($vo['roleid'] == 2) ): ?>管理员
+                    <?php elseif(($vo['roleid'] == 1) ): ?>商家
                     <?php else: ?>会员<?php endif; ?>
                   </td>
                   <td>
-                    <?php if(($vo['state'] == 0) ): ?>待审核
+                    <?php if(($vo['status'] == 0) ): ?>待审核
                     <?php else: ?>已审核[Pass]<?php endif; ?>
                   </td>
                   <td>

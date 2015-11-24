@@ -13,19 +13,21 @@
 <link rel="stylesheet" type="text/css" href="__PUBLIC__/assets/css/amazeui.min.css" />
 <link rel="stylesheet" type="text/css" href="__PUBLIC__/assets/css/admin.css" />
 <link rel="stylesheet" type="text/css" href="__PUBLIC__/assets/css/app.css" />
-<script type="text/javascript">
-$(function(){
-   $("form:first").submit(function(){
-    if(!$("#title").val()){
-        alert("请输入名称！");
-        return false;
-    }
-   });
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Js/kindeditor/themes/default/default.css" />
+<script charset="utf-8" src="__PUBLIC__/Js/kindeditor/kindeditor-min.js" />
+<script charset="utf-8" src="__PUBLIC__/Js/kindeditor/lang/zh_CN.js"></script>
 
+<script>
+      KindEditor.ready(function(K) {
+        K.create('textarea[name="content"]', {
+          autoHeightMode : true,
+          afterCreate : function() {
+            this.loadPlugin('autoheight');
+          }
+        });
+      });
+    </script>
 
-})
-
-</script>
 </head>
 
 <body>
@@ -78,6 +80,7 @@ $(function(){
           <a class="am-cf" data-am-collapse="{target: '#collapse-nav'}"><span class="am-icon-file"></span> 产品管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
           <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav">
             <li><a href="__URL__/../rack_type_add" class="am-cf"><span class="am-icon-check"></span> 产品分类添加</a></li>
+            <li><a href="__URL__/../rack_type"><span class="am-icon-th"></span> 全部产品分类</a></li>
             <li><a href="__URL__/../rack_add" class="am-cf"><span class="am-icon-check"></span> 产品添加</a></li>
             <li><a href="__URL__/../rack"><span class="am-icon-th"></span> 全部产品</a></li>
           </ul>
@@ -94,8 +97,8 @@ $(function(){
         <li class="admin-parent">
           <a class="am-cf" data-am-collapse="{target: '#collapse-nav3'}"><span class="am-icon-file"></span> 分类管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
           <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav3">
-            <li><a href="__URL__/../type_add" class="am-cf"><span class="am-icon-check"></span> 分类添加</a></li>
-            <li><a href="__URL__/../type"><span class="am-icon-th"></span> 全部分类</a></li>
+            <li><a href="__URL__/../menu_add" class="am-cf"><span class="am-icon-check"></span> 分类添加</a></li>
+            <li><a href="__URL__/../menu"><span class="am-icon-th"></span> 全部分类</a></li>
           </ul>
         </li>
 
@@ -140,22 +143,21 @@ $(function(){
             </div>
           </div>
 
-         <!--  <div class="am-form-group">
-            <label for="user-phone" class="am-u-sm-3 am-form-label">新闻分类 </label>
+          <div class="am-form-group">
+            <label for="user-type" class="am-u-sm-3 am-form-label">新闻分类 </label>
             <div class="am-u-sm-9">
-                <select name="typeid" data-am-selected="{btnSize: 'sm'}">
-                  <option value="0">分类1</option>
-                  <option value="1">分类2</option>
-                  <option value="2">分类3</option>
+                <select name="menuId" data-am-selected="{btnSize: 'sm'}">
+                  <?php if(is_array($menu)): $i = 0; $__LIST__ = $menu;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["id"]); ?>"><?php echo ($vo["title"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
                 </select>
             </div>
-          </div> -->
+          </div>
 
           
           <div class="am-form-group">
             <label for="user-intro" class="am-u-sm-3 am-form-label">新闻内容</label>
             <div class="am-u-sm-9">
               <textarea class="" rows="5" name="content" id="content" placeholder="输入新闻内容"></textarea>
+
             </div>
           </div>
 
